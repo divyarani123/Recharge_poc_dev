@@ -15,6 +15,7 @@ void main() {
 
     testWidgets("Recharge POC Login screen Testing", (widgetTester) async {
       // Setup the finder and assian the value
+      widgetTester.printToConsole("Flutter Integration testing started");
       app.main();
 
       final Finder customeridCtrlVal = find.byKey(Key('custidCtrlKey'));
@@ -29,16 +30,25 @@ void main() {
 
       await widgetTester.tap(customeridCtrlVal);
       await widgetTester.enterText(customeridCtrlVal, '123456');
+      widgetTester.printToConsole("Entered custid");
 
       await widgetTester.pumpAndSettle(Duration(seconds: 2));
 
       await widgetTester.tap(customerPswdVal);
       await widgetTester.enterText(customerPswdVal, '123456');
+      widgetTester.printToConsole("Entered cust password");
 
       await widgetTester.pumpAndSettle(Duration(seconds: 2));
       await widgetTester.tap(submitButton);
+
+      widgetTester.printToConsole("Tapped on submit button");
+
       await widgetTester.pumpAndSettle(Duration(seconds: 2));
       expect(find.text('Welcome to the Dashboard'), findsOneWidget);
+
+      widgetTester.printToConsole(
+          "expectation success then navigate to Dashboard Screen");
+
       await widgetTester.pumpAndSettle();
 
       final Finder fastagBtn = find.byKey(Key('fastagkey'));
@@ -69,7 +79,7 @@ void main() {
       await widgetTester.tap(selecteWalletDropdown);
       await widgetTester.pumpAndSettle();
 
-      // widgetTester.printToConsole("Testing.... by rehaman");
+      widgetTester.printToConsole("");
 
       final Finder finderWalletItem = find
           .byWidgetPredicate(
