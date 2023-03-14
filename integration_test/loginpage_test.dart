@@ -204,9 +204,8 @@ void main() {
       }
 // ----------------------------- take screenshot 5 -------------------
 
-      await widgetTester.pump(Duration(seconds: 3));
+      await Future.delayed(Duration(seconds: 3));
 
-      await widgetTester.pump();
       // await widgetTester.pumpAndSettle(Duration(seconds: 2));
       final Finder confirmAndPayBtn = find.byKey(ValueKey('authotpBTNKey'));
       await widgetTester.tap(confirmAndPayBtn);
@@ -227,7 +226,7 @@ void main() {
 // ----------------------------- take screenshot 6 -------------------
 
       await widgetTester.pumpAndSettle();
-
+      // await widgetTester.pumpAndSettle();
       // Recharge POC DashBoard Test cases:
     });
   });
