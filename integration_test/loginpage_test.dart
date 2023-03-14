@@ -14,8 +14,8 @@ void main() {
   //     as IntegrationTestWidgetsFlutterBinding;
 
   group("E2E Testing for HDFC Recharge POC", () {
-    final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized()
-        as IntegrationTestWidgetsFlutterBinding;
+    WidgetsFlutterBinding.ensureInitialized();
+    final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
     testWidgets("Recharge POC Login screen Testing", (widgetTester) async {
       await binding.convertFlutterSurfaceToImage();
